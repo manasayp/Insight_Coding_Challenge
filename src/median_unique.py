@@ -1,5 +1,6 @@
 # example of program that calculates the median number of unique words per tweet.
 import sys
+import os
 
 #function to compute median of incoming tweets
 def compute_median(uniques):
@@ -14,12 +15,21 @@ def compute_median(uniques):
     
 def main():
     uniques = list()
-    with open(str(sys.argv[1]),"r") as fr,open(str(sys.argv[2]),"w") as fw:
-        for line in fr:
-            length = len(set(line.split()))
-            uniques.append(length)
-            median = compute_median(uniques)
-            fw.write(str(median)+"\n")
-            
+    try:
+        with open(str(sys.argv[1]),"r") as fr,open(str(sys.argv[2]),"w") as fw:
+            if os.stat(str(sys.argv[1])).st_size == 0:
+                with open(str(sys.argv[2]),"w") as fw:
+                    fw.write("The input file is empty")
+                    sys.exit()
+            else:
+                for line in fr:
+                    length = len(set(line.split()))
+                    uniques.append(length)
+                    median = compute_median(uniques)
+                    fw.write(str(median)+"\n")
+    except IOError:
+        with open(str(sys.argv[2]),"w") as fw:
+            fw.write("The input file does not exist")
+            sys.exit()        
 
 if __name__ == '__main__':main()
