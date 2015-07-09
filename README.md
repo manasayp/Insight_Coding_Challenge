@@ -1,4 +1,4 @@
-The programs are implemented and executed successfully using Python 2.7 on Windows 8 Operating System
+run.sh is executed and tested on cygwin on Windows.
 The following libraries are used
 1.Counter [collections.py] for storing words count
 2.sys module for providing input and output files as command line arguments
