@@ -1,19 +1,16 @@
 # example of program that calculates the median number of unique words per tweet.
-from collections import Counter
+import sys
 
+#function to compute median of incoming tweets
 def compute_median(uniques):
     uniques = sorted(uniques)
     length = len(uniques)
     if length < 1:
         return None
     if not length % 2:
-        original = float(sum(uniques[(length/2)-1 : (length/2)+1]))/2.0
-        if int(str(original).split('.')[1]) is 0:
-            return int(original)
-        else:
-            return original
+        return float("{0:.2f}".format((sum(uniques[(length/2)-1 : (length/2)+1]))/2.0))
     else:
-        return uniques[((length+1)/2)- 1]
+        return float("{0:.2f}".format(uniques[((length+1)/2)- 1]))
     
 def main():
     uniques = list()

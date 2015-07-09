@@ -8,7 +8,7 @@ def main():
     word_freq = Counter(content.split())
     with open(str(sys.argv[2]),"w") as f:
         for key in sorted(word_freq.iterkeys()):
-            value = "%s : %d" %(key,word_freq[key])
+            value = '{:<25} {:<5}'.format(key,word_freq[key])
             f.write(str(value)+'\n')
 
 if __name__ == '__main__':main()
