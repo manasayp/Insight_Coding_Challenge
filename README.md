@@ -6,6 +6,7 @@ The following libraries are used
 4.list - for computing median of incoming tweets
 5.sorted() functionality to sort list elements
 6.len(),float(),format(), split() and str() functions
+7.os module for checking file size
 
 
 
